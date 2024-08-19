@@ -1,0 +1,90 @@
+<template>
+  <div :class="$style['item']">
+    <button :class="$style['item__button']" type="button">
+      <CoreIcon
+        :src="
+          isCompleted
+            ? require('../../assets/circle-check.svg')
+            : require('../../assets/circle.svg')
+        "
+      />
+    </button>
+    <p
+      :class="[
+        $style['item__content'],
+        isCompleted ? $style['item__content--completed'] : '',
+      ]"
+    >
+      {{ content }}
+    </p>
+    <button
+      :class="[$style['item__button'], $style['item__button--delete']]"
+      type="button"
+    >
+      <CoreIcon :src="require('../../assets/xmark.svg')" />
+    </button>
+  </div>
+</template>
+
+<script>
+import CoreIcon from '../CoreIcon/CoreIcon.vue'
+
+export default {
+  name: 'TodoItem',
+  components: {
+    CoreIcon,
+  },
+  props: {
+    content: {
+      type: String,
+      required: true,
+    },
+    isCompleted: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}
+</script>
+
+<style lang="scss" module>
+.item {
+  display: flex;
+  width: 600px;
+  padding: 1em 1.5em;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e4e4e4;
+
+  &:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+
+    .item__button--delete {
+      visibility: visible;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    text-align: left;
+    padding: 0 1em;
+
+    &--completed {
+      color: #b1b1b1;
+      text-decoration: line-through;
+    }
+  }
+
+  &__icon {
+    height: 2em;
+    width: 2em;
+  }
+
+  &__button {
+    &--delete {
+      visibility: hidden;
+    }
+  }
+}
+</style>
