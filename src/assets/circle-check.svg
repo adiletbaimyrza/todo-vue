@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="9%" style="stop-color:rgba(189,58,208,0.7198529069831057);stop-opacity:1" />
+      <stop offset="47%" style="stop-color:rgba(153,90,194,0.5237744756105567);stop-opacity:1" />
+      <stop offset="93%" style="stop-color:rgba(38,121,180,0.6526260162268032);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="url(#grad1)" /></svg>
