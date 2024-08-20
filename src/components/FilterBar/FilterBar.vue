@@ -71,7 +71,7 @@ export default {
   padding: 1em 1.5em;
   align-items: center;
   width: 600px;
-  background-color: #ffffff;
+  background-color: var(--card-background-color);
 
   &__count {
     font-size: 0.9em;
@@ -95,7 +95,7 @@ export default {
       text-transform: capitalize;
 
       &:hover {
-        color: #000000;
+        color: var(--filter-text--hover);
       }
     }
 
@@ -110,7 +110,7 @@ export default {
     color: #b1b1b1;
 
     &:hover {
-      color: #000000;
+      color: var(--filter-text--hover);
     }
   }
 }

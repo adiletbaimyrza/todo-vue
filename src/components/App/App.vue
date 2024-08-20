@@ -18,6 +18,24 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --app-background-color: #ffffff;
+  --card-background-color: #ffffff;
+  --font-color-regular: #000000;
+  --filter-text--hover: #000000;
+  --card-background-color--hover: #f1f1f1;
+  --card-border-color: #e4e4e4;
+}
+
+[theme='dark'] {
+  --app-background-color: #091a28;
+  --card-background-color: #091a28;
+  --font-color-regular: #ffffff;
+  --filter-text--hover: #ffffff;
+  --card-background-color--hover: #11314b;
+  --card-border-color: #08263f;
+}
+
 /* css reset --- start */
 *,
 *::before,
@@ -25,6 +43,7 @@ export default {
   margin: unset;
   padding: unset;
   box-sizing: border-box;
+  z-index: 3;
 }
 
 button {
@@ -46,6 +65,8 @@ body,
 #app {
   width: 100vw;
   height: 100vh;
+  transition: color 0.1s linear, background 0.1s linear,
+    background-color 0.1s linear;
 }
 
 #app {
@@ -56,8 +77,9 @@ body,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   overflow-x: hidden;
+  background-color: var(--app-background-color);
+  z-index: 0;
 
   &::before {
     content: '';
@@ -75,7 +97,7 @@ body,
       url('../../assets/mountains.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: 1;
   }
 }
 </style>

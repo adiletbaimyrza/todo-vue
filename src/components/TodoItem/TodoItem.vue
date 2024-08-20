@@ -70,11 +70,12 @@ export default {
   width: 600px;
   padding: 1em 1.5em;
   align-items: center;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e4e4e4;
+  color: var(--font-color-regular);
+  background-color: var(--card-background-color);
+  border-bottom: 1px solid var(--card-border-color);
 
   &:hover {
-    background-color: #f1f1f1;
+    background-color: var(--card-background-color--hover);
     cursor: pointer;
 
     .item__button--delete {
