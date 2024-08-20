@@ -66,6 +66,8 @@ export default {
   display: flex;
   padding: 1em 1.5em;
   align-items: center;
+  width: 600px;
+  background-color: #ffffff;
 
   &__count {
     font-size: 0.9em;
