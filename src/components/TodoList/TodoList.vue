@@ -1,8 +1,9 @@
 <template>
   <div :class="$style['list']">
     <TodoItem
-      v-for="(item, index) in todos"
-      :key="index"
+      v-for="item in sortedTodos"
+      :key="item.id"
+      :id="item.id"
       :content="item.content"
       :isCompleted="item.isCompleted"
     />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import FilterBar from '../FilterBar/FilterBar.vue'
 import TodoItem from '../TodoItem/TodoItem.vue'
 
@@ -20,15 +22,8 @@ export default {
     TodoItem,
     FilterBar,
   },
-  data() {
-    return {
-      todos: [
-        { content: 'Buy groceries', isCompleted: false },
-        { content: 'Walk the dog', isCompleted: false },
-        { content: 'Read a book', isCompleted: true },
-        { content: 'Do laundry', isCompleted: true },
-      ],
-    }
+  computed: {
+    ...mapGetters(['sortedTodos']),
   },
 }
 </script>
