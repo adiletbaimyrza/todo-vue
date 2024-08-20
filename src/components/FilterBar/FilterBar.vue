@@ -1,9 +1,10 @@
 <template>
   <div :class="$style['container']">
-    <p :class="$style['container__count']">{{ count }} items left</p>
+    <p :class="$style['container__count']">{{ activeCount }} items left</p>
     <ul :class="$style['container__filters']">
       <li>
         <button
+          @click="setFilter('all')"
           type="button"
           :class="
             currentFilter === 'all' ? $style['container__filters--active'] : ''
@@ -14,6 +15,7 @@
       </li>
       <li>
         <button
+          @click="setFilter('active')"
           type="button"
           :class="
             currentFilter === 'active'
@@ -26,6 +28,7 @@
       </li>
       <li>
         <button
+          @click="setFilter('completed')"
           type="button"
           :class="
             currentFilter === 'completed'
@@ -37,26 +40,27 @@
         </button>
       </li>
     </ul>
-    <button type="button" :class="$style['container__clear']">
+    <button
+      @click="deleteCompleted"
+      type="button"
+      :class="$style['container__clear']"
+    >
       clear completed
     </button>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex'
+
 export default {
   name: 'FilterBar',
-  props: {
-    count: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
-    currentFilter: {
-      type: String,
-      required: true,
-      default: 'all',
-    },
+  computed: {
+    ...mapState(['currentFilter']),
+    ...mapGetters(['activeCount']),
+  },
+  methods: {
+    ...mapMutations(['setFilter', 'deleteCompleted']),
   },
 }
 </script>

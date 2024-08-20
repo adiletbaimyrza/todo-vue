@@ -7,9 +7,12 @@ const initialTodos = [
   { id: 4, content: 'Do laundry', isCompleted: true },
 ]
 
+const initialFilter = 'all'
+
 export default createStore({
   state: {
     todos: initialTodos,
+    currentFilter: initialFilter,
   },
   mutations: {
     add(state, todo) {
@@ -24,10 +27,36 @@ export default createStore({
     delete(state, todoId) {
       state.todos = state.todos.filter(t => t.id !== todoId)
     },
+    setFilter(state, filter) {
+      state.currentFilter = filter
+    },
+    deleteCompleted(state) {
+      state.todos = state.todos.filter(t => !t.isCompleted)
+    },
   },
   getters: {
     sortedTodos(state) {
       return state.todos.slice().sort((a, b) => a.isCompleted - b.isCompleted)
+    },
+    filteredTodos(state) {
+      let filtered = []
+      switch (state.currentFilter) {
+        case 'all':
+          filtered = state.todos
+          break
+        case 'active':
+          filtered = state.todos.filter(t => !t.isCompleted)
+          break
+        case 'completed':
+          filtered = state.todos.filter(t => t.isCompleted)
+          break
+        default:
+          filtered = state.todos
+      }
+      return filtered.sort((a, b) => a.isCompleted - b.isCompleted)
+    },
+    activeCount(state) {
+      return state.todos.filter(t => !t.isCompleted).length
     },
   },
 })

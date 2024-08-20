@@ -1,7 +1,7 @@
 <template>
   <div :class="$style['list']">
     <TodoItem
-      v-for="item in sortedTodos"
+      v-for="item in filteredTodos"
       :key="item.id"
       :id="item.id"
       :content="item.content"
@@ -23,7 +23,7 @@ export default {
     FilterBar,
   },
   computed: {
-    ...mapGetters(['sortedTodos']),
+    ...mapGetters(['filteredTodos']),
   },
 }
 </script>
