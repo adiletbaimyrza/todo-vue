@@ -5,6 +5,8 @@
       :class="$style['bar__icon']"
     />
     <input
+      v-model="newTodoContent"
+      @keyup.enter="addNewTodo"
       :class="$style['bar__input']"
       type="text"
       placeholder="Ex: Buy groceries..."
@@ -18,6 +20,24 @@ import CoreIcon from '../CoreIcon/CoreIcon.vue'
 export default {
   name: 'NewTodo',
   components: { CoreIcon },
+  data() {
+    return {
+      newTodoContent: '',
+    }
+  },
+  methods: {
+    addNewTodo() {
+      if (this.newTodoContent.trim() !== '') {
+        const newTodo = {
+          id: Date.now(),
+          content: this.newTodoContent,
+          isCompleted: false,
+        }
+        this.$store.commit('add', newTodo)
+        this.newTodoContent = ''
+      }
+    },
+  },
 }
 </script>
 

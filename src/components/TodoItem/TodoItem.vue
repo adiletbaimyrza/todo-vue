@@ -1,6 +1,10 @@
 <template>
-  <div :class="$style['item']">
-    <button :class="$style['item__button']" type="button">
+  <div @click="checkTodo" :class="$style['item']">
+    <button
+      @click.stop="checkTodo"
+      :class="$style['item__button']"
+      type="button"
+    >
       <CoreIcon
         :src="
           isCompleted
@@ -18,6 +22,7 @@
       {{ content }}
     </p>
     <button
+      @click.stop="deleteTodo"
       :class="[$style['item__button'], $style['item__button--delete']]"
       type="button"
     >
@@ -35,6 +40,10 @@ export default {
     CoreIcon,
   },
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     content: {
       type: String,
       required: true,
@@ -42,6 +51,14 @@ export default {
     isCompleted: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    checkTodo() {
+      this.$store.commit('check', this.id)
+    },
+    deleteTodo() {
+      this.$store.commit('delete', this.id)
     },
   },
 }
