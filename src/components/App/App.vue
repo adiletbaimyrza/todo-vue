@@ -19,7 +19,9 @@ export default {
 
 <style lang="scss">
 /* css reset --- start */
-* {
+*,
+*::before,
+*::after {
   margin: unset;
   padding: unset;
   box-sizing: border-box;
@@ -50,12 +52,12 @@ body,
   display: flex;
   flex-direction: column;
   align-items: center;
-
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow-x: hidden;
 
   &::before {
     content: '';
