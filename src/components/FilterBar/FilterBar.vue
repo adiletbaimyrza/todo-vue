@@ -1,62 +1,71 @@
 <template>
   <div :class="$style['container']">
-    <p :class="$style['container__count']">{{ count }} items left</p>
+    <p :class="$style['container__count']">{{ activeCount }} items left</p>
     <ul :class="$style['container__filters']">
       <li>
         <button
+          @click="setFilter(TodoFilter.ALL)"
           type="button"
-          :class="
-            currentFilter === 'all' ? $style['container__filters--active'] : ''
-          "
+          :class="{
+            [$style['container__filters--active']]:
+              currentFilter === TodoFilter.ALL,
+          }"
         >
           all
         </button>
       </li>
       <li>
         <button
+          @click="setFilter(TodoFilter.ACTIVE)"
           type="button"
-          :class="
-            currentFilter === 'active'
-              ? $style['container__filters--active']
-              : ''
-          "
+          :class="{
+            [$style['container__filters--active']]:
+              currentFilter === TodoFilter.ACTIVE,
+          }"
         >
           active
         </button>
       </li>
       <li>
         <button
+          @click="setFilter(TodoFilter.COMPLETED)"
           type="button"
-          :class="
-            currentFilter === 'completed'
-              ? $style['container__filters--active']
-              : ''
-          "
+          :class="{
+            [$style['container__filters--active']]:
+              currentFilter === TodoFilter.COMPLETED,
+          }"
         >
           completed
         </button>
       </li>
     </ul>
-    <button type="button" :class="$style['container__clear']">
+    <button
+      @click="deleteCompleted"
+      type="button"
+      :class="$style['container__clear']"
+    >
       clear completed
     </button>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex'
+import { TodoFilter } from '@/constants'
+
 export default {
   name: 'FilterBar',
-  props: {
-    count: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
-    currentFilter: {
-      type: String,
-      required: true,
-      default: 'all',
-    },
+  computed: {
+    ...mapState(['currentFilter']),
+    ...mapGetters(['activeCount']),
+  },
+  methods: {
+    ...mapMutations(['setFilter', 'deleteCompleted']),
+  },
+  data() {
+    return {
+      TodoFilter,
+    }
   },
 }
 </script>
@@ -67,7 +76,7 @@ export default {
   padding: 1em 1.5em;
   align-items: center;
   width: 600px;
-  background-color: #ffffff;
+  background-color: var(--card-background-color);
 
   &__count {
     font-size: 0.9em;
@@ -91,7 +100,7 @@ export default {
       text-transform: capitalize;
 
       &:hover {
-        color: #000000;
+        color: var(--filter-text--hover);
       }
     }
 
@@ -106,7 +115,7 @@ export default {
     color: #b1b1b1;
 
     &:hover {
-      color: #000000;
+      color: var(--filter-text--hover);
     }
   }
 }

@@ -45,11 +45,12 @@ export default {
 .bar {
   display: flex;
   width: 600px;
-  background-color: #ffffff;
+  background-color: var(--card-background-color);
   padding: 1em 1.5em;
   border-radius: 0.4em;
   margin-bottom: 1.5em;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  caret-color: var(--font-color-regular);
 
   &__icon {
     margin-right: 1em;
@@ -60,6 +61,8 @@ export default {
     outline: none;
     border: none;
     font-size: 1em;
+    color: var(--font-color-regular);
+    background-color: var(--card-background-color);
 
     &::placeholder {
       color: #b1b1b1;
