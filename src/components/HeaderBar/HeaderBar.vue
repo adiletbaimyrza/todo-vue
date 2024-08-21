@@ -17,6 +17,10 @@
 
 <script>
 import CoreIcon from '../CoreIcon/CoreIcon.vue'
+import useDark from '@/composables/useDark'
+import useToggle from '@/composables/useToggle'
+
+const isDark = useDark()
 
 export default {
   name: 'HeaderBar',
@@ -25,28 +29,26 @@ export default {
   },
   data() {
     return {
-      iconSrc: this.getIconSrc(),
       isIconActive: false,
     }
   },
+  computed: {
+    iconSrc() {
+      return isDark.value
+        ? require('../../assets/sun.svg')
+        : require('../../assets/moon.svg')
+    },
+  },
   methods: {
     toggleTheme() {
+      const toggleDark = useToggle(isDark)
+
       this.isIconActive = true
       setTimeout(() => {
         this.isIconActive = false
       }, 100)
-      const html = document.documentElement
-      if (html.getAttribute('theme') === 'dark') {
-        html.removeAttribute('theme')
-      } else {
-        html.setAttribute('theme', 'dark')
-      }
-      this.iconSrc = this.getIconSrc()
-    },
-    getIconSrc() {
-      return document.documentElement.getAttribute('theme') === 'dark'
-        ? require('../../assets/sun.svg')
-        : require('../../assets/moon.svg')
+
+      toggleDark()
     },
   },
 }
