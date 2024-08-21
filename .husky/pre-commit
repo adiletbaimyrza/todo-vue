@@ -2,3 +2,4 @@
 
 yarn lint:fix
 
+yarn prettier:fix
