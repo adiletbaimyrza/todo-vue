@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { TodoFilter } from '@/constants'
 
 const initialTodos = [
   { id: 1, content: 'Buy groceries', isCompleted: false },
@@ -7,7 +8,7 @@ const initialTodos = [
   { id: 4, content: 'Do laundry', isCompleted: true },
 ]
 
-const initialFilter = 'all'
+const initialFilter = TodoFilter.ALL
 
 export default createStore({
   state: {
@@ -41,13 +42,13 @@ export default createStore({
     filteredTodos(state) {
       let filtered = []
       switch (state.currentFilter) {
-        case 'all':
+        case TodoFilter.ALL:
           filtered = state.todos
           break
-        case 'active':
+        case TodoFilter.ACTIVE:
           filtered = state.todos.filter(t => !t.isCompleted)
           break
-        case 'completed':
+        case TodoFilter.COMPLETED:
           filtered = state.todos.filter(t => t.isCompleted)
           break
         default:

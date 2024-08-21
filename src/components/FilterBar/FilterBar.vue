@@ -4,10 +4,11 @@
     <ul :class="$style['container__filters']">
       <li>
         <button
-          @click="setFilter('all')"
+          @click="setFilter(TodoFilter.ALL)"
           type="button"
           :class="{
-            [$style['container__filters--active']]: currentFilter === 'all',
+            [$style['container__filters--active']]:
+              currentFilter === TodoFilter.ALL,
           }"
         >
           all
@@ -15,10 +16,11 @@
       </li>
       <li>
         <button
-          @click="setFilter('active')"
+          @click="setFilter(TodoFilter.ACTIVE)"
           type="button"
           :class="{
-            [$style['container__filters--active']]: currentFilter === 'active',
+            [$style['container__filters--active']]:
+              currentFilter === TodoFilter.ACTIVE,
           }"
         >
           active
@@ -26,11 +28,11 @@
       </li>
       <li>
         <button
-          @click="setFilter('completed')"
+          @click="setFilter(TodoFilter.COMPLETED)"
           type="button"
           :class="{
             [$style['container__filters--active']]:
-              currentFilter === 'completed',
+              currentFilter === TodoFilter.COMPLETED,
           }"
         >
           completed
@@ -49,6 +51,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
+import { TodoFilter } from '@/constants'
 
 export default {
   name: 'FilterBar',
@@ -58,6 +61,11 @@ export default {
   },
   methods: {
     ...mapMutations(['setFilter', 'deleteCompleted']),
+  },
+  data() {
+    return {
+      TodoFilter,
+    }
   },
 }
 </script>
