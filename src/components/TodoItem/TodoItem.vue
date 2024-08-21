@@ -74,6 +74,12 @@ export default {
   background-color: var(--card-background-color);
   border-bottom: 1px solid var(--card-border-color);
 
+  &__button {
+    &--delete {
+      visibility: hidden;
+    }
+  }
+
   &:hover {
     background-color: var(--card-background-color--hover);
     cursor: pointer;
@@ -97,12 +103,6 @@ export default {
   &__icon {
     height: 2em;
     width: 2em;
-  }
-
-  &__button {
-    &--delete {
-      visibility: hidden;
-    }
   }
 }
 </style>

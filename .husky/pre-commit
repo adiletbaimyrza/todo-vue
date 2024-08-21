@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+yarn lint:fix
+
+yarn stylelint:fix
+
+yarn prettier:fix
+

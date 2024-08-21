@@ -64,7 +64,7 @@ export default {
 
   &__heading {
     text-transform: uppercase;
-    color: #ffffff;
+    color: #fff;
     letter-spacing: 0.5em;
     cursor: default;
   }

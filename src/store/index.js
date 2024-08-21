@@ -1,18 +1,24 @@
 import { createStore } from 'vuex'
 import { TodoFilter } from '@/constants'
+import { syncTodosToLocalStorage } from './plugins'
 
-const initialTodos = [
-  { id: 1, content: 'Buy groceries', isCompleted: false },
-  { id: 2, content: 'Walk the dog', isCompleted: false },
-  { id: 3, content: 'Read a book', isCompleted: true },
-  { id: 4, content: 'Do laundry', isCompleted: true },
-]
+const loadTodos = () => {
+  const todos = localStorage.getItem('todos')
+  return todos
+    ? JSON.parse(todos)
+    : [
+        { id: 1, content: 'Buy groceries', isCompleted: false },
+        { id: 2, content: 'Walk the dog', isCompleted: false },
+        { id: 3, content: 'Read a book', isCompleted: true },
+        { id: 4, content: 'Do laundry', isCompleted: true },
+      ]
+}
 
 const initialFilter = TodoFilter.ALL
 
 export default createStore({
   state: {
-    todos: initialTodos,
+    todos: loadTodos(),
     currentFilter: initialFilter,
   },
   mutations: {
@@ -64,4 +70,5 @@ export default createStore({
       return state.todos.filter(todo => !todo.isCompleted).length
     },
   },
+  plugins: [syncTodosToLocalStorage],
 })

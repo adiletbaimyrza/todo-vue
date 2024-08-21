@@ -96,7 +96,7 @@ export default {
       color: #b1b1b1;
       font-family: Inter, sans-serif;
       font-weight: 500;
-      padding: 0 1em 0 1em;
+      padding: 0 1em;
       text-transform: capitalize;
 
       &:hover {
