@@ -16,7 +16,7 @@
     <p
       :class="[
         $style['item__content'],
-        isCompleted ? $style['item__content--completed'] : '',
+        { [$style['item__content--completed']]: isCompleted },
       ]"
     >
       {{ content }}

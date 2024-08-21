@@ -6,9 +6,9 @@
         <button
           @click="setFilter('all')"
           type="button"
-          :class="
-            currentFilter === 'all' ? $style['container__filters--active'] : ''
-          "
+          :class="{
+            [$style['container__filters--active']]: currentFilter === 'all',
+          }"
         >
           all
         </button>
@@ -17,11 +17,9 @@
         <button
           @click="setFilter('active')"
           type="button"
-          :class="
-            currentFilter === 'active'
-              ? $style['container__filters--active']
-              : ''
-          "
+          :class="{
+            [$style['container__filters--active']]: currentFilter === 'active',
+          }"
         >
           active
         </button>
@@ -30,11 +28,10 @@
         <button
           @click="setFilter('completed')"
           type="button"
-          :class="
-            currentFilter === 'completed'
-              ? $style['container__filters--active']
-              : ''
-          "
+          :class="{
+            [$style['container__filters--active']]:
+              currentFilter === 'completed',
+          }"
         >
           completed
         </button>
