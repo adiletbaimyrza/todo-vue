@@ -32,7 +32,7 @@ export default {
 .list {
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgb(100 100 111 / 20%) 0 7px 29px 0;
   border-radius: 0.4em;
 
   > :first-child {

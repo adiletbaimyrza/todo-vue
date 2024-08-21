@@ -10,7 +10,7 @@ export default {
 
 <style lang="scss" module>
 .container {
-  margin: 4em 0 4em 0;
+  margin: 4em 0;
   color: #b1b1b1;
 
   &::first-letter {

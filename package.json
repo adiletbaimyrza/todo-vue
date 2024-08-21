@@ -7,6 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix",
+    "stylelint": "stylelint \"src/**/*.vue\"",
+    "stylelint:fix": "stylelint \"src/**/*.vue\" --fix",
     "prettier:fix": "prettier --write \"src/**/*.{js,vue,css,scss}\"",
     "postinstall": "husky"
   },
@@ -24,9 +26,13 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "husky": "^9.1.5",
+    "postcss-html": "^1.7.0",
     "prettier": "^3.3.3",
     "sass": "^1.77.8",
-    "sass-loader": "^16.0.1"
+    "sass-loader": "^16.0.1",
+    "stylelint": "^16.8.2",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard-scss": "^13.1.0"
   },
   "eslintConfig": {
     "root": true,
