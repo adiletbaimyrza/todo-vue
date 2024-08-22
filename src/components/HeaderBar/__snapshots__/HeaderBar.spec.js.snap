@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header.vue renders correctly 1`] = `
+<header
+  class="bar"
+>
+  <h1
+    class="bar__heading"
+  >
+    todo
+  </h1>
+  <button
+    class=""
+    type="button"
+  >
+    <core-icon-stub
+      class="bar__button__icon"
+      height="32px"
+      src=""
+      width="32px"
+    />
+  </button>
+</header>
+`;

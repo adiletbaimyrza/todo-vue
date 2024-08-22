@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBar.vue renders correctly with initial state 1`] = `
+<div
+  class="container"
+>
+  <p
+    class="container__count"
+  >
+    5 items left
+  </p>
+  <ul
+    class="container__filters"
+  >
+    <li>
+      <button
+        class="container__filters--active"
+        type="button"
+      >
+         all 
+      </button>
+    </li>
+    <li>
+      <button
+        class=""
+        type="button"
+      >
+         active 
+      </button>
+    </li>
+    <li>
+      <button
+        class=""
+        type="button"
+      >
+         completed 
+      </button>
+    </li>
+  </ul>
+  <button
+    class="container__clear"
+    type="button"
+  >
+     clear completed 
+  </button>
+</div>
+`;

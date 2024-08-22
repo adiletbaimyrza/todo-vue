@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterBar.vue renders correctly 1`] = `
+<footer
+  class="container"
+>
+  drag and drop to reorder list
+</footer>
+`;

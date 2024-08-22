@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItem.vue renders correctly with required props 1`] = `
+<div
+  class="item"
+>
+  <button
+    class=""
+    type="button"
+  >
+    <core-icon-stub
+      height="24px"
+      src=""
+      width="24px"
+    />
+  </button>
+  <p
+    class="item__content"
+  >
+    Test Todo
+  </p>
+  <button
+    class="item__button--delete"
+    type="button"
+  >
+    <core-icon-stub
+      height="24px"
+      src=""
+      width="24px"
+    />
+  </button>
+</div>
+`;
