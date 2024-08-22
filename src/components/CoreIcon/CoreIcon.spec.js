@@ -5,7 +5,7 @@ import CoreIcon from './CoreIcon.vue'
 describe('CoreIcon.vue', () => {
   it('renders correctly', () => {
     const wrapper = shallowMount(CoreIcon, {
-      propsData: {
+      props: {
         src: 'test-icon.png',
       },
     })
@@ -14,7 +14,7 @@ describe('CoreIcon.vue', () => {
 
   it('renders with correct src, width, and height props', () => {
     const wrapper = shallowMount(CoreIcon, {
-      propsData: {
+      props: {
         src: 'test-icon.png',
         width: '32px',
         height: '32px',
@@ -28,7 +28,7 @@ describe('CoreIcon.vue', () => {
 
   it('applies default width and height when not provided', () => {
     const wrapper = shallowMount(CoreIcon, {
-      propsData: {
+      props: {
         src: 'test-icon.png',
       },
     })

@@ -16,14 +16,14 @@ describe('TodoItem.vue', () => {
 
   it('renders correctly with required props', () => {
     const wrapper = shallowMount(TodoItem, {
-      propsData: todoPropsNotCompleted,
+      props: todoPropsNotCompleted,
     })
     expect(wrapper.exists()).toBe(true)
   })
 
   it('renders todo content correctly', () => {
     const wrapper = shallowMount(TodoItem, {
-      propsData: todoPropsNotCompleted,
+      props: todoPropsNotCompleted,
     })
     const content = wrapper.find('p')
     expect(content.text()).toBe('Test Todo')
@@ -31,7 +31,7 @@ describe('TodoItem.vue', () => {
 
   it('calls checkTodo method when check button is clicked', async () => {
     const wrapper = shallowMount(TodoItem, {
-      propsData: todoPropsNotCompleted,
+      props: todoPropsNotCompleted,
     })
     const checkTodoMock = jest.fn()
     wrapper.vm.checkTodo = checkTodoMock
@@ -42,7 +42,7 @@ describe('TodoItem.vue', () => {
 
   it('calls deleteTodo method when delete button is clicked', async () => {
     const wrapper = shallowMount(TodoItem, {
-      propsData: todoPropsNotCompleted,
+      props: todoPropsNotCompleted,
     })
     const deleteTodoMock = jest.fn()
     wrapper.vm.deleteTodo = deleteTodoMock
@@ -53,7 +53,7 @@ describe('TodoItem.vue', () => {
 
   it("applies 'item__content--completed' class if isCompleted === true", () => {
     const wrapper = shallowMount(TodoItem, {
-      propsData: todoPropsCompleted,
+      props: todoPropsCompleted,
     })
     const content = wrapper.find('p')
     expect(content.classes()).toContain(
