@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App.vue renders the App correctly 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <header-bar-stub />
+  <new-todo-stub />
+  <todo-list-stub />
+  <footer-bar-stub />
+  
+</div>
+`;
