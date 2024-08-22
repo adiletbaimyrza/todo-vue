@@ -16,7 +16,7 @@ const loadTodos = () => {
 
 const initialFilter = TodoFilter.ALL
 
-export default createStore({
+export const storeConfig = {
   state: {
     todos: loadTodos(),
     currentFilter: initialFilter,
@@ -71,4 +71,6 @@ export default createStore({
     },
   },
   plugins: [syncTodosToLocalStorage],
-})
+}
+
+export default createStore(storeConfig)
