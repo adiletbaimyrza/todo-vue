@@ -12,6 +12,7 @@ describe('Header.vue', () => {
 
   it('renders correctly', () => {
     expect(wrapper.exists()).toBe(true)
+    expect(wrapper.element).toMatchSnapshot()
   })
 
   it('renders todo text correctly', () => {

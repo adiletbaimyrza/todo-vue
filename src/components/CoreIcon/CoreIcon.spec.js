@@ -10,6 +10,7 @@ describe('CoreIcon.vue', () => {
       },
     })
     expect(wrapper.exists()).toBe(true)
+    expect(wrapper.element).toMatchSnapshot()
   })
 
   it('renders with correct src, width, and height props', () => {

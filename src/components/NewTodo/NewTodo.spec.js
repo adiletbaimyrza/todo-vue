@@ -11,6 +11,7 @@ describe('NewTodo.vue', () => {
 
   it('renders correctly', () => {
     expect(wrapper.exists()).toBe(true)
+    expect(wrapper.element).toMatchSnapshot()
   })
 
   it('fires addNewTodo method on keyup.enter', async () => {

@@ -19,6 +19,7 @@ describe('TodoItem.vue', () => {
       props: todoPropsNotCompleted,
     })
     expect(wrapper.exists()).toBe(true)
+    expect(wrapper.element).toMatchSnapshot()
   })
 
   it('renders todo content correctly', () => {
