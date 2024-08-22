@@ -3,11 +3,17 @@ import CoreIcon from './CoreIcon.vue'
 
 /* global describe it expect */
 describe('CoreIcon.vue', () => {
+  const propsWithSizes = {
+    src: 'test-icon.png',
+    width: '32px',
+    height: '32px',
+  }
+  const propsWithoutSizes = {
+    src: 'test-icon.png',
+  }
   it('renders correctly', () => {
     const wrapper = shallowMount(CoreIcon, {
-      props: {
-        src: 'test-icon.png',
-      },
+      props: propsWithoutSizes,
     })
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.element).toMatchSnapshot()
@@ -15,11 +21,7 @@ describe('CoreIcon.vue', () => {
 
   it('renders with correct src, width, and height props', () => {
     const wrapper = shallowMount(CoreIcon, {
-      props: {
-        src: 'test-icon.png',
-        width: '32px',
-        height: '32px',
-      },
+      props: propsWithSizes,
     })
     const img = wrapper.find('img')
     expect(img.attributes('src')).toBe('test-icon.png')
@@ -29,9 +31,7 @@ describe('CoreIcon.vue', () => {
 
   it('applies default width and height when not provided', () => {
     const wrapper = shallowMount(CoreIcon, {
-      props: {
-        src: 'test-icon.png',
-      },
+      props: propsWithoutSizes,
     })
     const img = wrapper.find('img')
     expect(img.attributes('width')).toBe('24px')
