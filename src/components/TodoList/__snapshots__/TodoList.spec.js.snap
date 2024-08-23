@@ -4,18 +4,24 @@ exports[`TodoList.vue renders correctly with initial state 1`] = `
 <div
   class="list"
 >
-  
-  <todo-item-stub
-    content="Task 1"
-    id="1"
-    iscompleted="false"
-  />
-  <todo-item-stub
-    content="Task 2"
-    id="2"
-    iscompleted="true"
-  />
-  
+  <div
+    class="list__scroll"
+  >
+    
+    <todo-item-stub
+      content="Task 1"
+      id="1"
+      index="0"
+      iscompleted="false"
+    />
+    <todo-item-stub
+      content="Task 2"
+      id="2"
+      index="1"
+      iscompleted="true"
+    />
+    
+  </div>
   <filter-bar-stub />
 </div>
 `;

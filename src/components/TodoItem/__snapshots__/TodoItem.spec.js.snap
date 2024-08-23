@@ -3,6 +3,7 @@
 exports[`TodoItem.vue renders correctly with required props 1`] = `
 <div
   class="item"
+  draggable="true"
 >
   <button
     class=""

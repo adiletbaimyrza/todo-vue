@@ -12,8 +12,11 @@ exports[`NewTodo.vue renders correctly 1`] = `
   />
   <input
     class="bar__input"
-    placeholder="Ex: Buy groceries..."
+    maxlength="151"
+    placeholder="Enter a new task..."
     type="text"
   />
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;

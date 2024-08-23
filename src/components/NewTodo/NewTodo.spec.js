@@ -25,6 +25,6 @@ describe('NewTodo.vue', () => {
 
   it('renders placeholder text correctly', () => {
     const input = wrapper.find('input')
-    expect(input.attributes('placeholder')).toBe('Ex: Buy groceries...')
+    expect(input.attributes('placeholder')).toBe('Enter a new task...')
   })
 })
