@@ -1,11 +1,15 @@
 <template>
   <div :class="$style['list']">
     <TodoItem
-      v-for="item in filteredTodos"
+      v-for="(item, index) in filteredTodos"
       :key="item.id"
       :id="item.id"
+      :index="index"
       :content="item.content"
       :isCompleted="item.isCompleted"
+      @dragStart="onDragStart"
+      @dragOver="onDragOver"
+      @dropItem="onDrop"
     />
     <FilterBar />
   </div>
@@ -24,6 +28,33 @@ export default {
   },
   computed: {
     ...mapGetters(['filteredTodos']),
+  },
+  data() {
+    return {
+      draggedItemIndex: null,
+    }
+  },
+  methods: {
+    onDragStart(index) {
+      this.draggedItemIndex = index
+    },
+    onDragOver(event, index) {
+      event.preventDefault()
+
+      if (index !== this.draggedItemIndex) {
+        const draggedItem = this.filteredTodos[this.draggedItemIndex]
+        this.filteredTodos.splice(this.draggedItemIndex, 1)
+        this.filteredTodos.splice(index, 0, draggedItem)
+        this.draggedItemIndex = index
+      }
+    },
+    onDrop() {
+      this.updateOrder()
+      this.draggedItemIndex = null
+    },
+    updateOrder() {
+      this.$store.commit('updateOrder', this.filteredTodos)
+    },
   },
 }
 </script>

@@ -40,6 +40,9 @@ export const storeConfig = {
     deleteCompleted(state) {
       state.todos = state.todos.filter(todo => !todo.isCompleted)
     },
+    updateOrder(state, newOrderTodos) {
+      state.todos = newOrderTodos
+    },
   },
   getters: {
     sortedTodos(state) {

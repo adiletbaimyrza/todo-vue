@@ -1,5 +1,13 @@
 <template>
-  <div @click="checkTodo" :class="$style['item']">
+  <div
+    @click="checkTodo"
+    :class="[$style['item'], isDragging ? $style['item--dragging'] : '']"
+    draggable="true"
+    @dragstart="onDragStart"
+    @dragover="onDragOver"
+    @drop="onDrop"
+    @dragend="onDragEnd"
+  >
     <button
       @click.stop="checkTodo"
       :class="$style['item__button']"
@@ -52,6 +60,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    index: {
+      type: Number,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      isDragging: false,
+    }
   },
   methods: {
     checkTodo() {
@@ -59,6 +76,21 @@ export default {
     },
     deleteTodo() {
       this.$store.commit('delete', this.id)
+    },
+    onDragStart() {
+      this.isDragging = true
+      this.$emit('dragStart', this.index)
+    },
+    onDragOver(event) {
+      this.$emit('dragOver', event, this.index)
+    },
+    onDrop(event) {
+      event.preventDefault()
+      this.isDragging = false
+      this.$emit('dropItem')
+    },
+    onDragEnd() {
+      this.isDragging = false
     },
   },
 }
@@ -103,6 +135,10 @@ export default {
   &__icon {
     height: 2em;
     width: 2em;
+  }
+
+  &--dragging {
+    background-color: var(--card-background-color--hover);
   }
 }
 </style>
