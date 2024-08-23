@@ -125,6 +125,7 @@ export default {
     flex-grow: 1;
     text-align: left;
     padding: 0 1em;
+    word-break: break-all;
 
     &--completed {
       color: #b1b1b1;
