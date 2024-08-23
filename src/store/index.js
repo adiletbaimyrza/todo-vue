@@ -23,7 +23,7 @@ export const storeConfig = {
   },
   mutations: {
     add(state, todo) {
-      state.todos.push(todo)
+      state.todos.unshift(todo)
     },
     check(state, todoId) {
       const todo = state.todos.find(todo => todo.id === todoId)
