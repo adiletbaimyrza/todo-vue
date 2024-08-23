@@ -16,7 +16,7 @@
       @blur="isFocused = false"
       :class="$style['bar__input']"
       type="text"
-      placeholder="Ex: Buy groceries..."
+      placeholder="Enter a new task..."
       maxlength="151"
     />
     <p v-if="isInputTooLong && isFocused" :class="$style['error-message']">
