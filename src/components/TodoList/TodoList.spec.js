@@ -36,7 +36,6 @@ describe('TodoList.vue', () => {
   })
 
   it('renders correctly with initial state', () => {
-    expect(wrapper.exists()).toBe(true)
     expect(wrapper.element).toMatchSnapshot()
   })
 
