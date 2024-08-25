@@ -18,7 +18,19 @@ exports[`TodoList.vue renders correctly with initial state 1`] = `
       content="Task 2"
       id="2"
       index="1"
-      iscompleted="true"
+      iscompleted="false"
+    />
+    <todo-item-stub
+      content="Task 3"
+      id="3"
+      index="2"
+      iscompleted="false"
+    />
+    <todo-item-stub
+      content="Task 4"
+      id="4"
+      index="3"
+      iscompleted="false"
     />
     
   </div>
