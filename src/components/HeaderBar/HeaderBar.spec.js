@@ -1,17 +1,19 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import HeaderBar from './HeaderBar.vue'
 import CoreIcon from '../CoreIcon/CoreIcon.vue'
+import useToggle from '@/composables/useToggle'
+
+jest.mock('@/composables/useToggle')
 
 /* global jest describe beforeEach it expect */
-describe('Header.vue', () => {
+describe('HeaderBar.vue', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallowMount(HeaderBar)
+    wrapper = mount(HeaderBar)
   })
 
   it('renders correctly', () => {
-    expect(wrapper.exists()).toBe(true)
     expect(wrapper.element).toMatchSnapshot()
   })
 
@@ -27,10 +29,14 @@ describe('Header.vue', () => {
   })
 
   it('fires toggleTheme method when button is clicked', async () => {
-    const toggleThemeMock = jest.fn()
-    wrapper.vm.toggleTheme = toggleThemeMock
+    const toggleThemeSpy = jest.spyOn(wrapper.vm, 'toggleTheme')
+
+    const toggleDarkMock = jest.fn()
+    useToggle.mockReturnValue(toggleDarkMock)
+
     const button = wrapper.find('button')
     await button.trigger('click')
-    expect(toggleThemeMock).toHaveBeenCalled()
+    expect(toggleThemeSpy).toHaveBeenCalled()
+    expect(toggleDarkMock).toHaveBeenCalled()
   })
 })
