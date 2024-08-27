@@ -1,6 +1,6 @@
 <template>
-  <div :class="$style['list']">
-    <div :class="$style['list__scroll']">
+  <div :class="$style['list']" :data-testid="DataTestIds.TODO_LIST">
+    <div :class="$style['list__scroll']" :data-testid="DataTestIds.SCROLL">
       <TodoItem
         v-for="(item, index) in filteredTodos"
         :key="item.id"
@@ -21,6 +21,7 @@
 import { mapGetters } from 'vuex'
 import FilterBar from '../FilterBar/FilterBar.vue'
 import TodoItem from '../TodoItem/TodoItem.vue'
+import { DataTestIds } from '@/constants'
 
 export default {
   name: 'TodoList',
@@ -34,6 +35,7 @@ export default {
   data() {
     return {
       draggedItemIndex: null,
+      DataTestIds,
     }
   },
   methods: {

@@ -1,7 +1,14 @@
 <template>
-  <header :class="$style['bar']">
-    <h1 :class="$style['bar__heading']">todo</h1>
-    <button @click="toggleTheme" type="button" :class="$style['bar__button']">
+  <header :class="$style['bar']" :data-testid="DataTestIds.HEADER_BAR">
+    <h1 :class="$style['bar__heading']" :data-testid="DataTestIds.HEADING">
+      todo
+    </h1>
+    <button
+      @click="toggleTheme"
+      type="button"
+      :class="$style['bar__button']"
+      :data-testid="DataTestIds.TOGGLE"
+    >
       <CoreIcon
         :src="iconSrc"
         height="32px"
@@ -19,6 +26,7 @@
 import CoreIcon from '../CoreIcon/CoreIcon.vue'
 import useDark from '@/composables/useDark'
 import useToggle from '@/composables/useToggle'
+import { DataTestIds } from '@/constants'
 
 const isDark = useDark()
 
@@ -30,6 +38,7 @@ export default {
   data() {
     return {
       isIconActive: false,
+      DataTestIds,
     }
   },
   computed: {

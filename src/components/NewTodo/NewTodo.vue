@@ -4,6 +4,7 @@
       $style['bar'],
       { [$style['bar--error']]: (isInputTooLong || isInputEmpty) && isFocused },
     ]"
+    :data-testid="DataTestIds.NEW_TODO"
   >
     <CoreIcon
       :src="require('../../assets/circle.svg')"
@@ -18,17 +19,27 @@
       type="text"
       placeholder="Enter a new task..."
       maxlength="151"
+      :data-testid="DataTestIds.INPUT"
     />
-    <p v-if="isInputTooLong && isFocused" :class="$style['error-message']">
+    <p
+      v-if="isInputTooLong && isFocused"
+      :class="$style['error-message']"
+      :data-testid="DataTestIds.TOO_LONG"
+    >
       Content should not exceed 150 characters.
     </p>
-    <p v-if="isInputEmpty && isFocused" :class="$style['error-message']">
+    <p
+      v-if="isInputEmpty && isFocused"
+      :class="$style['error-message']"
+      :data-testid="DataTestIds.EMPTY"
+    >
       Content should not be empty.
     </p>
   </div>
 </template>
 
 <script>
+import { DataTestIds } from '@/constants'
 import CoreIcon from '../CoreIcon/CoreIcon.vue'
 
 export default {
@@ -39,6 +50,7 @@ export default {
       newTodoContent: '',
       enterPressed: false,
       isFocused: false,
+      DataTestIds,
     }
   },
   computed: {
