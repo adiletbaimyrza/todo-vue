@@ -1,13 +1,14 @@
 <template>
   <div
     @click="checkTodo"
-    :class="[$style['item'], isDragging ? $style['item--dragging'] : '']"
+    :class="[$style['item'], { [$style['item--dragging']]: isDragging }]"
     draggable="true"
     @dragstart="onDragStart"
     @dragover="onDragOver"
     @drop="onDrop"
     @dragend="onDragEnd"
     :data-testid="DataTestIds.TODO_ITEM"
+    :data-completed="isCompleted"
   >
     <button
       @click.stop="checkTodo"
