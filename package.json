@@ -12,7 +12,6 @@
     "prettier:fix": "prettier --write \"src/**/*.{js,vue,css,scss}\"",
     "postinstall": "husky",
     "test:unit": "jest",
-    "pretest:e2e": "yarn build",
     "test:e2e": "concurrently \"yarn serve\" \"yarn playwright test\""
   },
   "dependencies": {
