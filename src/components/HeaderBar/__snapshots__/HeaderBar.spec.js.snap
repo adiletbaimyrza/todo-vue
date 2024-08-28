@@ -3,19 +3,23 @@
 exports[`HeaderBar.vue renders correctly 1`] = `
 <header
   class="bar"
+  data-testid="HeaderBar"
 >
   <h1
     class="bar__heading"
+    data-testid="Heading"
   >
-    todo
+     todo 
   </h1>
   <button
     class=""
+    data-testid="Toggle"
     type="button"
   >
     <img
       alt="Icon"
       class="icon bar__button__icon"
+      data-testid="CoreIcon"
       height="32px"
       src=""
       width="32px"

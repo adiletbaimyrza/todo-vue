@@ -3,7 +3,8 @@
 exports[`FooterBar.vue renders correctly 1`] = `
 <footer
   class="container"
+  data-testid="FooterBar"
 >
-  drag and drop to reorder list
+   drag and drop to reorder list 
 </footer>
 `;
