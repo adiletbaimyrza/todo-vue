@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header.vue renders correctly 1`] = `
+exports[`HeaderBar.vue renders correctly 1`] = `
 <header
   class="bar"
 >
@@ -13,8 +13,9 @@ exports[`Header.vue renders correctly 1`] = `
     class=""
     type="button"
   >
-    <core-icon-stub
-      class="bar__button__icon"
+    <img
+      alt="Icon"
+      class="icon bar__button__icon"
       height="32px"
       src=""
       width="32px"

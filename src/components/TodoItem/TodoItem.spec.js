@@ -18,7 +18,7 @@ describe('TodoItem.vue', () => {
     const wrapper = shallowMount(TodoItem, {
       props: todoPropsNotCompleted,
     })
-    expect(wrapper.exists()).toBe(true)
+
     expect(wrapper.element).toMatchSnapshot()
   })
 

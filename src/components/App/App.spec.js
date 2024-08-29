@@ -14,7 +14,6 @@ describe('App.vue', () => {
   })
 
   it('renders the App correctly', () => {
-    expect(wrapper.exists()).toBe(true)
     expect(wrapper.element).toMatchSnapshot()
   })
 

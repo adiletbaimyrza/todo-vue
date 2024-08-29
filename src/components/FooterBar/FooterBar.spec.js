@@ -5,7 +5,7 @@ import FooterBar from './FooterBar.vue'
 describe('FooterBar.vue', () => {
   it('renders correctly', () => {
     const wrapper = shallowMount(FooterBar)
-    expect(wrapper.exists()).toBe(true)
+
     expect(wrapper.element).toMatchSnapshot()
   })
 

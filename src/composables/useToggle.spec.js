@@ -24,4 +24,13 @@ describe('useToggle', () => {
     expect(toggle()).toBe(true)
     expect(toggle()).toBe(false)
   })
+
+  it('should throw a TypeError if targetRef is not a ref object', () => {
+    expect(() => useToggle(123)).toThrow(TypeError)
+    expect(() => useToggle('string')).toThrow(TypeError)
+  })
+
+  it('should throw a TypeError if targetRef is an object without a value property', () => {
+    expect(() => useToggle({})).toThrow(TypeError)
+  })
 })
