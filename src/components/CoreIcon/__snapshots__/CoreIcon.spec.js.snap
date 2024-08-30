@@ -4,6 +4,7 @@ exports[`CoreIcon.vue renders correctly 1`] = `
 <img
   alt="Icon"
   class="icon"
+  data-testid="CoreIcon"
   height="24px"
   src="test-icon.png"
   width="24px"

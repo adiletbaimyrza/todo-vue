@@ -8,4 +8,5 @@ module.exports = {
     '**/__tests__/*.[jt]s?(x)',
     '**/*.spec.[jt]s?(x)',
   ],
+  testPathIgnorePatterns: ['/node_modules/', '/e2e/'],
 }

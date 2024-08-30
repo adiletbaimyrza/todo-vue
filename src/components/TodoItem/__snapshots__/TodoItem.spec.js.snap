@@ -3,10 +3,13 @@
 exports[`TodoItem.vue renders correctly with required props 1`] = `
 <div
   class="item"
+  data-completed="false"
+  data-testid="TodoItem"
   draggable="true"
 >
   <button
     class=""
+    data-testid="Check"
     type="button"
   >
     <core-icon-stub
@@ -17,11 +20,13 @@ exports[`TodoItem.vue renders correctly with required props 1`] = `
   </button>
   <p
     class="item__content"
+    data-testid="Content"
   >
     Test Todo
   </p>
   <button
     class="item__button--delete"
+    data-testid="Delete"
     type="button"
   >
     <core-icon-stub

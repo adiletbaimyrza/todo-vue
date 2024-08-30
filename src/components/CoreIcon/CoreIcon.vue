@@ -5,10 +5,13 @@
     :width="width"
     :height="height"
     alt="Icon"
+    :data-testid="DataTestIds.CORE_ICON"
   />
 </template>
 
 <script>
+import { DataTestIds } from '@/constants'
+
 export default {
   name: 'CoreIcon',
   props: {
@@ -24,6 +27,11 @@ export default {
       type: String,
       default: '24px',
     },
+  },
+  data() {
+    return {
+      DataTestIds,
+    }
   },
 }
 </script>

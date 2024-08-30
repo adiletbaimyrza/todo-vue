@@ -3,16 +3,19 @@
 exports[`NewTodo.vue renders correctly 1`] = `
 <div
   class="bar"
+  data-testid="NewTodo"
 >
   <img
     alt="Icon"
     class="icon bar__icon"
+    data-testid="CoreIcon"
     height="24px"
     src=""
     width="24px"
   />
   <input
     class="bar__input"
+    data-testid="Input"
     maxlength="151"
     placeholder="Enter a new task..."
     type="text"

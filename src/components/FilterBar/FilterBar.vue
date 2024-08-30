@@ -1,7 +1,15 @@
 <template>
-  <div :class="$style['container']">
-    <p :class="$style['container__count']">{{ activeCount }} items left</p>
-    <ul :class="$style['container__filters']">
+  <div :class="$style['container']" :data-testid="DataTestIds.FILTER_BAR">
+    <p
+      :class="$style['container__count']"
+      :data-testid="DataTestIds.ACTIVE_COUNT"
+    >
+      {{ activeCount }} items left
+    </p>
+    <ul
+      :class="$style['container__filters']"
+      :data-testid="DataTestIds.FILTERS"
+    >
       <li>
         <button
           @click="setFilter(TodoFilter.ALL)"
@@ -10,6 +18,7 @@
             [$style['container__filters--active']]:
               currentFilter === TodoFilter.ALL,
           }"
+          :data-testid="DataTestIds.FILTER_ALL"
         >
           all
         </button>
@@ -22,6 +31,7 @@
             [$style['container__filters--active']]:
               currentFilter === TodoFilter.ACTIVE,
           }"
+          :data-testid="DataTestIds.FILTER_ACTIVE"
         >
           active
         </button>
@@ -34,6 +44,7 @@
             [$style['container__filters--active']]:
               currentFilter === TodoFilter.COMPLETED,
           }"
+          :data-testid="DataTestIds.FILTER_COMPLETED"
         >
           completed
         </button>
@@ -43,6 +54,7 @@
       @click="deleteCompleted"
       type="button"
       :class="$style['container__clear']"
+      :data-testid="DataTestIds.CLEAR_COMPLETED"
     >
       clear completed
     </button>
@@ -51,7 +63,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
-import { TodoFilter } from '@/constants'
+import { TodoFilter, DataTestIds } from '@/constants'
 
 export default {
   name: 'FilterBar',
@@ -65,6 +77,7 @@ export default {
   data() {
     return {
       TodoFilter,
+      DataTestIds,
     }
   },
 }

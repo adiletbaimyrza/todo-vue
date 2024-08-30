@@ -1,17 +1,20 @@
 <template>
   <div
     @click="checkTodo"
-    :class="[$style['item'], isDragging ? $style['item--dragging'] : '']"
+    :class="[$style['item'], { [$style['item--dragging']]: isDragging }]"
     draggable="true"
     @dragstart="onDragStart"
     @dragover="onDragOver"
     @drop="onDrop"
     @dragend="onDragEnd"
+    :data-testid="DataTestIds.TODO_ITEM"
+    :data-completed="isCompleted"
   >
     <button
       @click.stop="checkTodo"
       :class="$style['item__button']"
       type="button"
+      :data-testid="DataTestIds.CHECK"
     >
       <CoreIcon
         :src="
@@ -26,6 +29,7 @@
         $style['item__content'],
         { [$style['item__content--completed']]: isCompleted },
       ]"
+      :data-testid="DataTestIds.CONTENT"
     >
       {{ content }}
     </p>
@@ -33,6 +37,7 @@
       @click.stop="deleteTodo"
       :class="[$style['item__button'], $style['item__button--delete']]"
       type="button"
+      :data-testid="DataTestIds.DELETE"
     >
       <CoreIcon :src="require('../../assets/xmark.svg')" />
     </button>
@@ -40,6 +45,7 @@
 </template>
 
 <script>
+import { DataTestIds } from '@/constants'
 import CoreIcon from '../CoreIcon/CoreIcon.vue'
 
 export default {
@@ -68,6 +74,7 @@ export default {
   data() {
     return {
       isDragging: false,
+      DataTestIds,
     }
   },
   methods: {

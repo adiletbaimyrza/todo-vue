@@ -3,18 +3,22 @@
 exports[`FilterBar.vue renders correctly with initial state 1`] = `
 <div
   class="container"
+  data-testid="FilterBar"
 >
   <p
     class="container__count"
+    data-testid="ActiveCount"
   >
-    5 items left
+    5 items left 
   </p>
   <ul
     class="container__filters"
+    data-testid="Filters"
   >
     <li>
       <button
         class="container__filters--active"
+        data-testid="All"
         type="button"
       >
          all 
@@ -23,6 +27,7 @@ exports[`FilterBar.vue renders correctly with initial state 1`] = `
     <li>
       <button
         class=""
+        data-testid="Active"
         type="button"
       >
          active 
@@ -31,6 +36,7 @@ exports[`FilterBar.vue renders correctly with initial state 1`] = `
     <li>
       <button
         class=""
+        data-testid="Completed"
         type="button"
       >
          completed 
@@ -39,6 +45,7 @@ exports[`FilterBar.vue renders correctly with initial state 1`] = `
   </ul>
   <button
     class="container__clear"
+    data-testid="Clear"
     type="button"
   >
      clear completed 

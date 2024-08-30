@@ -3,9 +3,11 @@
 exports[`TodoList.vue renders correctly with initial state 1`] = `
 <div
   class="list"
+  data-testid="TodoList"
 >
   <div
     class="list__scroll"
+    data-testid="Scroll"
   >
     
     <todo-item-stub

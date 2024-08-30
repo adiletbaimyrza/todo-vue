@@ -1,10 +1,17 @@
 <template>
-  <footer :class="$style['container']">drag and drop to reorder list</footer>
+  <footer :class="$style['container']" :data-testid="DataTestIds.FOOTER_BAR">
+    drag and drop to reorder list
+  </footer>
 </template>
 
 <script>
+import { DataTestIds } from '@/constants'
+
 export default {
   name: 'FooterBar',
+  data() {
+    return { DataTestIds }
+  },
 }
 </script>
 
