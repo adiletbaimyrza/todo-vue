@@ -1,6 +1,6 @@
 # todo-vue
 
-![Screenshot of the Todo application built using Vue.js](src/assets/todo-vue-screenshot.png)
+![Screenshot of the Todo application built using Vue.js](public/todo-vue-screenshot.png)
 
 ## Project setup
 
