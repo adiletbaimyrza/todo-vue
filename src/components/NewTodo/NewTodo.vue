@@ -22,18 +22,11 @@
       :data-testid="DataTestIds.INPUT"
     />
     <p
-      v-if="isInputTooLong && isFocused"
+      v-if="errorMessage && isFocused"
       :class="$style['error-message']"
-      :data-testid="DataTestIds.TOO_LONG"
+      :data-testid="DataTestIds.ERROR_MESSAGE"
     >
-      Content should not exceed 150 characters.
-    </p>
-    <p
-      v-if="isInputEmpty && isFocused"
-      :class="$style['error-message']"
-      :data-testid="DataTestIds.EMPTY"
-    >
-      Content should not be empty.
+      {{ errorMessage }}
     </p>
   </div>
 </template>
@@ -59,6 +52,15 @@ export default {
     },
     isInputEmpty() {
       return this.newTodoContent.length === 0 && this.enterPressed
+    },
+    errorMessage() {
+      if (this.newTodoContent.length > 150) {
+        return 'Content should not exceed 150 characters.'
+      }
+      if (this.newTodoContent.length === 0 && this.enterPressed) {
+        return 'Content should not be empty.'
+      }
+      return ''
     },
   },
   methods: {
