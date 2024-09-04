@@ -27,6 +27,8 @@ import CoreIcon from '../CoreIcon/CoreIcon.vue'
 import useDark from '@/composables/useDark'
 import useToggle from '@/composables/useToggle'
 import { DataTestIds } from '@/constants'
+import sun from '../../assets/sun.svg'
+import moon from '../../assets/moon.svg'
 
 const isDark = useDark()
 
@@ -43,9 +45,7 @@ export default {
   },
   computed: {
     iconSrc() {
-      return isDark.value
-        ? require('../../assets/sun.svg')
-        : require('../../assets/moon.svg')
+      return isDark.value ? sun : moon
     },
   },
   methods: {
