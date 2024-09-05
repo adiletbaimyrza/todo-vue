@@ -6,10 +6,7 @@
     ]"
     :data-testid="DataTestIds.NEW_TODO"
   >
-    <CoreIcon
-      :src="require('../../assets/circle.svg')"
-      :class="$style['bar__icon']"
-    />
+    <CoreIcon :src="circle" :class="$style['bar__icon']" />
     <input
       v-model="newTodoContent"
       @keyup.enter="addNewTodo"
@@ -34,6 +31,7 @@
 <script>
 import { DataTestIds } from '@/constants'
 import CoreIcon from '../CoreIcon/CoreIcon.vue'
+import circle from '../../assets/circle.svg'
 
 export default {
   name: 'NewTodo',
@@ -44,6 +42,7 @@ export default {
       enterPressed: false,
       isFocused: false,
       DataTestIds,
+      circle,
     }
   },
   computed: {
@@ -68,11 +67,7 @@ export default {
       this.enterPressed = true
       const trimmedNewTodoContent = this.newTodoContent.trim()
 
-      if (trimmedNewTodoContent === '') {
-        return
-      }
-
-      if (trimmedNewTodoContent.length > 150) {
+      if (trimmedNewTodoContent === '' || trimmedNewTodoContent.length > 150) {
         return
       }
 
