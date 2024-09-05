@@ -6,10 +6,7 @@
     ]"
     :data-testid="DataTestIds.NEW_TODO"
   >
-    <CoreIcon
-      :src="require('../../assets/circle.svg')"
-      :class="$style['bar__icon']"
-    />
+    <CoreIcon :src="circle" :class="$style['bar__icon']" />
     <input
       v-model="newTodoContent"
       @keyup.enter="addNewTodo"
@@ -22,18 +19,11 @@
       :data-testid="DataTestIds.INPUT"
     />
     <p
-      v-if="isInputTooLong && isFocused"
+      v-if="errorMessage && isFocused"
       :class="$style['error-message']"
-      :data-testid="DataTestIds.TOO_LONG"
+      :data-testid="DataTestIds.ERROR_MESSAGE"
     >
-      Content should not exceed 150 characters.
-    </p>
-    <p
-      v-if="isInputEmpty && isFocused"
-      :class="$style['error-message']"
-      :data-testid="DataTestIds.EMPTY"
-    >
-      Content should not be empty.
+      {{ errorMessage }}
     </p>
   </div>
 </template>
@@ -41,6 +31,7 @@
 <script>
 import { DataTestIds } from '@/constants'
 import CoreIcon from '../CoreIcon/CoreIcon.vue'
+import circle from '../../assets/circle.svg'
 
 export default {
   name: 'NewTodo',
@@ -51,6 +42,7 @@ export default {
       enterPressed: false,
       isFocused: false,
       DataTestIds,
+      circle,
     }
   },
   computed: {
@@ -60,17 +52,22 @@ export default {
     isInputEmpty() {
       return this.newTodoContent.length === 0 && this.enterPressed
     },
+    errorMessage() {
+      if (this.newTodoContent.length > 150) {
+        return 'Content should not exceed 150 characters.'
+      }
+      if (this.newTodoContent.length === 0 && this.enterPressed) {
+        return 'Content should not be empty.'
+      }
+      return ''
+    },
   },
   methods: {
     addNewTodo() {
       this.enterPressed = true
       const trimmedNewTodoContent = this.newTodoContent.trim()
 
-      if (trimmedNewTodoContent === '') {
-        return
-      }
-
-      if (trimmedNewTodoContent.length > 150) {
+      if (trimmedNewTodoContent === '' || trimmedNewTodoContent.length > 150) {
         return
       }
 

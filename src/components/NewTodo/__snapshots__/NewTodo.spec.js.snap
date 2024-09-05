@@ -21,6 +21,5 @@ exports[`NewTodo.vue renders correctly 1`] = `
     type="text"
   />
   <!--v-if-->
-  <!--v-if-->
 </div>
 `;

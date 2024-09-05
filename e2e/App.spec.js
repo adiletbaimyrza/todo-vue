@@ -41,16 +41,16 @@ test.describe('Perfect Todo E2E Tests', () => {
 
     await input.fill('')
     await input.press('Enter')
-    await expect(page.getByTestId(d.EMPTY)).toBeVisible()
-    await expect(page.getByTestId(d.EMPTY)).toHaveText(
+    await expect(page.getByTestId(d.ERROR_MESSAGE)).toBeVisible()
+    await expect(page.getByTestId(d.ERROR_MESSAGE)).toHaveText(
       'Content should not be empty.'
     )
 
     const longText = 'a'.repeat(151)
     await input.fill(longText)
     await input.press('Enter')
-    await expect(page.getByTestId(d.TOO_LONG)).toBeVisible()
-    await expect(page.getByTestId(d.TOO_LONG)).toHaveText(
+    await expect(page.getByTestId(d.ERROR_MESSAGE)).toBeVisible()
+    await expect(page.getByTestId(d.ERROR_MESSAGE)).toHaveText(
       'Content should not exceed 150 characters.'
     )
   })
